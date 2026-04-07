@@ -94,28 +94,28 @@ SVG ICON SYSTEM (18 icons):
 <style>
 /* === COLOUR SYSTEM === */
 :root {
-  --navy: #1B3A5C;
-  --mid-blue: #2563A8;
-  --teal: #1A6B5A;
-  --gold: #8B6000;
-  --red: #C0392B;
-  --surface-light: #EDF3FA;
-  --surface-white: #FFFFFF;
-  --text-primary: #111827;
-  --text-secondary: #6B7280;
-  --border: #D1D5DB;
-  --bg: #F8FAFC;
-  --teal-light: #E6F5F0;
-  --red-light: #FDE8E8;
-  --gold-light: #FEF3C7;
+  --navy: #1B4E6B;
+  --mid-blue: #2D6B8A;
+  --teal: #2D8B6F;
+  --gold: #B8860B;
+  --red: #C94043;
+  --surface-light: #F5F1E8;
+  --surface-white: #FEFCF7;
+  --text-primary: #2C2C2C;
+  --text-secondary: #6B6860;
+  --border: #DDD8CC;
+  --bg: #FAF8F2;
+  --teal-light: #E8F2ED;
+  --red-light: #FDE8E5;
+  --gold-light: #FEF3D5;
 }
 
 /* === RESET & BASE === */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body {
-  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  font-family: -apple-system, 'PingFang SC', 'Noto Sans SC', 'Source Han Sans SC', 'Microsoft YaHei', sans-serif;
   font-size: 14px;
-  line-height: 1.6;
+  line-height: 1.75;
   color: var(--text-primary);
   background: var(--bg);
 }
@@ -127,7 +127,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 /* === LAYOUT === */
 .app { display: flex; min-height: 100vh; }
 .sidebar {
-  width: 240px; background: var(--navy); color: #fff;
+  width: 250px; background: linear-gradient(180deg, #1B4E6B 0%, #0F3347 60%, #1A3A4A 100%); color: #fff;
   padding: 20px 0; position: fixed; top: 0; left: 0; bottom: 0;
   display: flex; flex-direction: column; z-index: 100;
 }
@@ -151,7 +151,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .nav-item .nav-icon svg { width: 18px; height: 18px; }
 .sidebar-footer { padding: 16px 20px; border-top: 1px solid rgba(255,255,255,0.15); font-size: 11px; color: rgba(255,255,255,0.4); }
 
-.main { margin-left: 240px; flex: 1; padding: 32px; max-width: 1340px; }
+.main { margin-left: 250px; flex: 1; padding: 32px; max-width: 1340px; }
 .module { display: none; }
 .module.active { display: block; }
 
@@ -465,7 +465,18 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 </style>
 </head>
 <body>
-
+<div id="loadingPage" style="position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;background:linear-gradient(160deg,#FAF8F2 0%,#F0EDE3 50%,#E8E3D8 100%);transition:opacity 0.8s ease">
+<div style="text-align:center">
+<svg width="80" height="80" viewBox="0 0 100 100" style="margin-bottom:16px"><circle cx="50" cy="30" r="7" fill="none" stroke="#C94043" stroke-width="1" opacity="0.7"><animate attributeName="r" values="5;8;5" dur="2s" repeatCount="indefinite"/></circle><circle cx="36" cy="45" r="6" fill="none" stroke="#C94043" stroke-width="1" opacity="0.5"><animate attributeName="r" values="7;4;7" dur="2.3s" repeatCount="indefinite"/></circle><circle cx="64" cy="45" r="6" fill="none" stroke="#C94043" stroke-width="1" opacity="0.6"><animate attributeName="r" values="4;7;4" dur="1.8s" repeatCount="indefinite"/></circle><path d="M30,80 Q42,55 50,35 Q54,50 70,72" fill="none" stroke="#2C2C2C" stroke-width="1.2" opacity="0.2"/></svg>
+<div style="font-size:28px;color:#1B4E6B;letter-spacing:6px;font-weight:600;margin-bottom:6px">FINNA</div>
+<div style="font-size:9px;color:#A0998C;letter-spacing:0.5px">Financial Intelligence Network Navigation Assistance</div>
+<div style="font-size:9px;color:#A0998C;letter-spacing:1px;margin-bottom:10px">财务智能网络导航助手</div>
+<div style="font-size:13px;color:#6B6860;margin-bottom:3px">你的生活财富管理小助手</div>
+<div style="font-size:11px;color:#A0998C;font-style:italic">Your life and wealth manager</div>
+<div style="margin-top:14px;font-size:11px;color:#A0998C;letter-spacing:3px">先评估 · 后行动</div>
+<div style="margin-top:16px;width:40px;height:2px;background:#E8E3D8;margin-left:auto;margin-right:auto;overflow:hidden"><div style="height:100%;width:30%;background:#C94043;animation:loadBar 1.5s ease-in-out infinite"></div></div>
+</div></div>
+<style>@keyframes loadBar{0%{width:10%;margin-left:0}50%{width:50%;margin-left:25%}100%{width:10%;margin-left:90%}}</style>
 <div class="app">
   <!-- === SIDEBAR === -->
   <nav class="sidebar">
@@ -663,7 +674,7 @@ function showUpgradeModal() {
     '<div class="pricing-grid">' +
       '<div class="pricing-card">' +
         '<div class="price-tier">免费版</div>' +
-        '<div class="price-amount">HKD 0</div>' +
+        '<div class="price-amount">¥0</div>' +
         '<div class="price-period">永久免费</div>' +
         '<div class="price-features">' +
           '<div>✓ 完整义务全景图</div><div>✓ 缺口检测与优先级排序</div><div>✓ 手术场景模拟</div>' +
@@ -759,10 +770,10 @@ function renderCrossBorderView() {
     '<div class="xborder-grid">' +
       '<div class="xborder-col">' +
         '<h4>🇭🇰 香港特别行政区</h4>' +
-        '<div class="xborder-row"><span class="xb-label">手术事件（中位数）</span><span class="xb-value">HKD 180,000</span></div>' +
+        '<div class="xborder-row"><span class="xb-label">手术事件（中位数）</span><span class="xb-value">¥180,000</span></div>' +
         '<div class="xborder-row"><span class="xb-label">医疗通胀</span><span class="xb-value">6% / 年</span></div>' +
-        '<div class="xborder-row"><span class="xb-label">国际学校</span><span class="xb-value">HKD 12,000 / 月</span></div>' +
-        '<div class="xborder-row"><span class="xb-label">养老护理</span><span class="xb-value">HKD 18,000 / 月</span></div>' +
+        '<div class="xborder-row"><span class="xb-label">国际学校</span><span class="xb-value">¥12,000 / 月</span></div>' +
+        '<div class="xborder-row"><span class="xb-label">养老护理</span><span class="xb-value">¥18,000 / 月</span></div>' +
         '<div class="xborder-row"><span class="xb-label">退休体系</span><span class="xb-value">MPF（5%+5%）</span></div>' +
         '<div class="xborder-row"><span class="xb-label">数据监管</span><span class="xb-value">PDPO</span></div>' +
         '<div class="xborder-row"><span class="xb-label">重疾保障可用性</span><span class="xb-value">471 个产品</span></div>' +
@@ -779,7 +790,7 @@ function renderCrossBorderView() {
       '</div>' +
     '</div>' +
     '<div class="ai-note" style="margin-top:12px"><div class="ai-label"><span class="cfp-badge">CFP®</span> AI 洞察</div>' +
-      '您的家庭横跨两个司法辖区：收入主要以港币在香港获得，而父母照护义务又延伸到珠三角。若父亲发生一次手术事件，香港的中位成本约为 HKD 180,000，内地约为 RMB 120,000；但内地医疗通胀达到 8%，高于香港的 6%，会在未来逐步缩小这部分差异。</div>' +
+      '您的家庭横跨两个司法辖区：收入主要以港币在香港获得，而父母照护义务又延伸到珠三角。若父亲发生一次手术事件，香港的中位成本约为 ¥180,000，内地约为 RMB 120,000；但内地医疗通胀达到 8%，高于香港的 6%，会在未来逐步缩小这部分差异。</div>' +
   '</div>';
 }
 
@@ -858,7 +869,7 @@ const COLORS = {
   Living: '#3B82F6', Growth: '#8B5CF6', Health: '#EF4444',
   Security: '#F59E0B', Family: '#EC4899', Future: '#10B981'
 };
-const CATEGORY_NAMES = ['Living','Growth','Health','Security','Family','Future'];
+const CATEGORY_NAMES = ['生活','增长','健康','安全','家庭','未来'];
 
 // --- Family Members ---
 const familyMembers = [
@@ -898,21 +909,21 @@ baseline.protected = baseline.surplus - baseline.deployable;
 // --- Coverage Items ---
 const coverage = [
   { id:'cov1', member_id:'self', product_type:'medical', provider:'友邦', policy_number:'GRP-2024', sum_assured:800000, annual_premium:0, source:'employer', covers_categories:['Health'], exclusions:['dental','pre-existing >12mo'], analysis_status:'analysed', gap_findings:['雇主团体医疗仅覆盖住院；门诊和牙科不在保障范围内'] },
-  { id:'cov2', member_id:'self', product_type:'CI', provider:'保诚', policy_number:'CI-20190034', sum_assured:500000, annual_premium:18000, source:'personal', covers_categories:['Health','Security'], exclusions:['收入保障附加险已于 2024 年 10 月失效，当前不生效'], analysis_status:'action_required', gap_findings:['重疾保单仍有效，但收入保障附加险已失效——当前收入保障为 0','保额 HK$500K 仅覆盖约 6.7 个月收入'] },
+  { id:'cov2', member_id:'self', product_type:'CI', provider:'保诚', policy_number:'CI-20190034', sum_assured:500000, annual_premium:18000, source:'personal', covers_categories:['Health','Security'], exclusions:['收入保障附加险已于 2024 年 10 月失效，当前不生效'], analysis_status:'action_required', gap_findings:['重疾保单仍有效，但收入保障附加险已失效——当前收入保障为 0','保额 ¥500K 仅覆盖约 6.7 个月收入'] },
   { id:'cov3', member_id:'self', product_type:'life', provider:'宏利', policy_number:'ML-WC-2021', sum_assured:1500000, annual_premium:24000, source:'personal', covers_categories:['Security'], exclusions:[], analysis_status:'analysed', gap_findings:[] },
   { id:'cov4', member_id:'self', product_type:'endowment', provider:'MPF', policy_number:'MPF', sum_assured:280000, annual_premium:0, source:'personal', covers_categories:['Future'], exclusions:[], analysis_status:'processed', gap_findings:[] },
 ];
 
 // --- Goals ---
 let goals = [
-  { id:'g1', title:'应急储备金', description:'建立相当于 3 个月固定支出的缓冲资金', member_id:'self', life_category:'Security', shield_build_code:'S3', horizon:'H1', priority:'critical', urgency:'critical', status:'in_progress', target_amount:144000, funded_amount:62000, monthly_commitment:8000, deadline:'2026-09-30', linked_coverage_ids:[], progress_pct:43, ai_notes:[{date:'2026-03-30',text:'当前资金 HK$62,000 仅覆盖您每月 HK$48,000 固定支出的 1.3 个月。若每月投入 HK$8,000，约 10.3 个月后（2027 年 1 月）可达到 3 个月目标 HK$144,000。若在此之前父亲需要手术，应急金将被完全耗尽，且仍有约 HK$82,000 缺口。',type:'insight'}], manual_notes:[], created_at:'2026-01-15' },
-  { id:'g2', title:"父亲健康保障", description:"补足父亲（68 岁，轻度高血压）的重疾与手术保障缺口", member_id:'father', life_category:'Health', shield_build_code:'S2', horizon:'H1', priority:'critical', urgency:'high', status:'at_risk', target_amount:350000, funded_amount:0, monthly_commitment:2800, deadline:'2026-06-30', linked_coverage_ids:[], progress_pct:0, ai_notes:[{date:'2026-03-30',text:"父亲目前没有个人重疾或手术保障。以 68 岁且有轻度高血压计算，马尔可夫模型显示其每年发生健康事件的概率约为 7%。一次手术事件的中位成本约 HK$180,000，而您现有 HK$62,000 应急金仅能覆盖其中 34%。",type:'insight'}], manual_notes:[], created_at:'2026-01-15' },
-  { id:'g3', title:"莉莉教育基金", description:"为中学与大学阶段建立教育资金", member_id:'child1', life_category:'Family', shield_build_code:'B3', horizon:'H3', priority:'high', urgency:'medium', status:'in_progress', target_amount:1200000, funded_amount:180000, monthly_commitment:6000, deadline:'2032-09-01', linked_coverage_ids:[], progress_pct:15, ai_notes:[{date:'2026-03-30',text:"若每月投入 HK$6,000、年化回报 5%，到莉莉 18 岁入大学时预计可累积约 HK$1,080,000，距离 HK$1.2M 目标仍差 HK$120,000。若改读国际学校，每月教育支出将再增加 HK$6,000，除非每月减少约 HK$4,200 的退休投入，否则该目标将难以实现。",type:'insight'}], manual_notes:[], created_at:'2026-01-15' },
-  { id:'g4', title:'退休基金建设', description:'为 60 岁退休进行长期财富积累', member_id:'self', life_category:'Future', shield_build_code:'B2', horizon:'H4', priority:'high', urgency:'low', status:'in_progress', target_amount:8000000, funded_amount:280000, monthly_commitment:10000, deadline:'2047-01-01', linked_coverage_ids:['cov4'], progress_pct:4, ai_notes:[{date:'2026-03-30',text:"强积金目前余额约 HK$280,000，若未来 21 年每月再投入 HK$10,000，按 5% 预计回报率计算，约可累积 HK$5,200,000，距离 HK$8M 目标仍差 HK$2,800,000。若教育基金每月再增加 HK$6,000，退休预计值将降至约 HK$3,600,000，短缺约 45%。",type:'insight'}], manual_notes:[], created_at:'2026-01-15' },
-  { id:'g5', title:'恢复收入保障', description:'重新激活重疾保单上已失效的收入保障附加险', member_id:'self', life_category:'Security', shield_build_code:'S3', horizon:'H1', priority:'critical', urgency:'critical', status:'at_risk', target_amount:0, funded_amount:0, monthly_commitment:450, deadline:'2026-04-30', linked_coverage_ids:['cov2'], progress_pct:0, ai_notes:[{date:'2026-03-30',text:"您的收入保障附加险已于 2024 年 10 月失效。没有这层保障时，若失业 6 个月，将产生 HK$450,000 缺口（HK$75,000 × 6 个月），而当前应急金仅有 HK$62,000。重新激活该附加险的成本约为每月 HK$450，仅占盈余 1%，却可弥补约 HK$388,000 的暴露缺口。",type:'insight'}], manual_notes:[], created_at:'2026-01-15' },
-  { id:'g6', title:'家庭旅行 — 日本', description:'计划在 8 月进行的年度家庭旅行', member_id:'family', life_category:'Living', shield_build_code:'B1', horizon:'H2', priority:'medium', urgency:'medium', status:'on_track', target_amount:45000, funded_amount:28000, monthly_commitment:3500, deadline:'2026-08-01', linked_coverage_ids:[], progress_pct:62, ai_notes:[{date:'2026-03-30',text:"目前已为 HK$45,000 目标存下 HK$28,000。若每月投入 HK$3,500，约 4.9 个月后（8 月中旬）达到目标。虽然进度正常，但几乎没有缓冲空间。若 8 月前应急金被动用，这个目标可能需要延后 2–3 个月。",type:'insight'}], manual_notes:[], created_at:'2026-02-01' },
-  { id:'g7', title:'职业发展 — CFA 二级', description:'职业发展投入及潜在收入提升', member_id:'self', life_category:'Growth', shield_build_code:'B4', horizon:'H2', priority:'medium', urgency:'low', status:'not_started', target_amount:25000, funded_amount:0, monthly_commitment:2500, deadline:'2027-06-01', linked_coverage_ids:[], progress_pct:0, ai_notes:[{date:'2026-03-30',text:"CFA 二级考试费用与资料总计约 HK$25,000。若每月投入 HK$2,500，约 10 个月可准备完毕。历史上，通过考试通常与香港金融行业 12%–18% 的收入提升相关，未来 24 个月内有望为您的月度盈余增加约 HK$9,000–13,500。",type:'insight'}], manual_notes:[], created_at:'2026-03-01' },
-  { id:'g8', title:"岳父糖尿病管理", description:"年度监测与用药支出缺口", member_id:'fil', life_category:'Health', shield_build_code:'S2', horizon:'H2', priority:'high', urgency:'medium', status:'in_progress', target_amount:48000, funded_amount:12000, monthly_commitment:3000, deadline:'2027-03-30', linked_coverage_ids:[], progress_pct:25, ai_notes:[{date:'2026-03-30',text:"糖尿病年度管理成本约 HK$48,000（专科复诊 HK$18,000 + 药物 HK$24,000 + 监测 HK$6,000）。以 70 岁且已确诊糖尿病计算，马尔可夫模型显示其每年转入更严重状态的概率约为 14%，届时年成本可能升至 HK$105,600（约 2.2 倍）。",type:'insight'}], manual_notes:[], created_at:'2026-02-15' },
+  { id:'g1', title:'应急储备金', description:'建立相当于 3 个月固定支出的缓冲资金', member_id:'self', life_category:'Security', shield_build_code:'S3', horizon:'H1', priority:'critical', urgency:'critical', status:'in_progress', target_amount:144000, funded_amount:62000, monthly_commitment:8000, deadline:'2026-09-30', linked_coverage_ids:[], progress_pct:43, ai_notes:[{date:'2026-03-30',text:'当前资金 ¥62,000 仅覆盖您每月 ¥48,000 固定支出的 1.3 个月。若每月投入 ¥8,000，约 10.3 个月后（2027 年 1 月）可达到 3 个月目标 ¥144,000。若在此之前父亲需要手术，应急金将被完全耗尽，且仍有约 ¥82,000 缺口。',type:'insight'}], manual_notes:[], created_at:'2026-01-15' },
+  { id:'g2', title:"父亲健康保障", description:"补足父亲（68 岁，轻度高血压）的重疾与手术保障缺口", member_id:'father', life_category:'Health', shield_build_code:'S2', horizon:'H1', priority:'critical', urgency:'high', status:'at_risk', target_amount:350000, funded_amount:0, monthly_commitment:2800, deadline:'2026-06-30', linked_coverage_ids:[], progress_pct:0, ai_notes:[{date:'2026-03-30',text:"父亲目前没有个人重疾或手术保障。以 68 岁且有轻度高血压计算，马尔可夫模型显示其每年发生健康事件的概率约为 7%。一次手术事件的中位成本约 ¥180,000，而您现有 ¥62,000 应急金仅能覆盖其中 34%。",type:'insight'}], manual_notes:[], created_at:'2026-01-15' },
+  { id:'g3', title:"莉莉教育基金", description:"为中学与大学阶段建立教育资金", member_id:'child1', life_category:'Family', shield_build_code:'B3', horizon:'H3', priority:'high', urgency:'medium', status:'in_progress', target_amount:1200000, funded_amount:180000, monthly_commitment:6000, deadline:'2032-09-01', linked_coverage_ids:[], progress_pct:15, ai_notes:[{date:'2026-03-30',text:"若每月投入 ¥6,000、年化回报 5%，到莉莉 18 岁入大学时预计可累积约 ¥1,080,000，距离 ¥1.2M 目标仍差 ¥120,000。若改读国际学校，每月教育支出将再增加 ¥6,000，除非每月减少约 ¥4,200 的退休投入，否则该目标将难以实现。",type:'insight'}], manual_notes:[], created_at:'2026-01-15' },
+  { id:'g4', title:'退休基金建设', description:'为 60 岁退休进行长期财富积累', member_id:'self', life_category:'Future', shield_build_code:'B2', horizon:'H4', priority:'high', urgency:'low', status:'in_progress', target_amount:8000000, funded_amount:280000, monthly_commitment:10000, deadline:'2047-01-01', linked_coverage_ids:['cov4'], progress_pct:4, ai_notes:[{date:'2026-03-30',text:"强积金目前余额约 ¥280,000，若未来 21 年每月再投入 ¥10,000，按 5% 预计回报率计算，约可累积 ¥5,200,000，距离 ¥8M 目标仍差 ¥2,800,000。若教育基金每月再增加 ¥6,000，退休预计值将降至约 ¥3,600,000，短缺约 45%。",type:'insight'}], manual_notes:[], created_at:'2026-01-15' },
+  { id:'g5', title:'恢复收入保障', description:'重新激活重疾保单上已失效的收入保障附加险', member_id:'self', life_category:'Security', shield_build_code:'S3', horizon:'H1', priority:'critical', urgency:'critical', status:'at_risk', target_amount:0, funded_amount:0, monthly_commitment:450, deadline:'2026-04-30', linked_coverage_ids:['cov2'], progress_pct:0, ai_notes:[{date:'2026-03-30',text:"您的收入保障附加险已于 2024 年 10 月失效。没有这层保障时，若失业 6 个月，将产生 ¥450,000 缺口（¥75,000 × 6 个月），而当前应急金仅有 ¥62,000。重新激活该附加险的成本约为每月 ¥450，仅占盈余 1%，却可弥补约 ¥388,000 的暴露缺口。",type:'insight'}], manual_notes:[], created_at:'2026-01-15' },
+  { id:'g6', title:'家庭旅行 — 日本', description:'计划在 8 月进行的年度家庭旅行', member_id:'family', life_category:'Living', shield_build_code:'B1', horizon:'H2', priority:'medium', urgency:'medium', status:'on_track', target_amount:45000, funded_amount:28000, monthly_commitment:3500, deadline:'2026-08-01', linked_coverage_ids:[], progress_pct:62, ai_notes:[{date:'2026-03-30',text:"目前已为 ¥45,000 目标存下 ¥28,000。若每月投入 ¥3,500，约 4.9 个月后（8 月中旬）达到目标。虽然进度正常，但几乎没有缓冲空间。若 8 月前应急金被动用，这个目标可能需要延后 2–3 个月。",type:'insight'}], manual_notes:[], created_at:'2026-02-01' },
+  { id:'g7', title:'职业发展 — CFA 二级', description:'职业发展投入及潜在收入提升', member_id:'self', life_category:'Growth', shield_build_code:'B4', horizon:'H2', priority:'medium', urgency:'low', status:'not_started', target_amount:25000, funded_amount:0, monthly_commitment:2500, deadline:'2027-06-01', linked_coverage_ids:[], progress_pct:0, ai_notes:[{date:'2026-03-30',text:"CFA 二级考试费用与资料总计约 ¥25,000。若每月投入 ¥2,500，约 10 个月可准备完毕。历史上，通过考试通常与香港金融行业 12%–18% 的收入提升相关，未来 24 个月内有望为您的月度盈余增加约 ¥9,000–13,500。",type:'insight'}], manual_notes:[], created_at:'2026-03-01' },
+  { id:'g8', title:"岳父糖尿病管理", description:"年度监测与用药支出缺口", member_id:'fil', life_category:'Health', shield_build_code:'S2', horizon:'H2', priority:'high', urgency:'medium', status:'in_progress', target_amount:48000, funded_amount:12000, monthly_commitment:3000, deadline:'2027-03-30', linked_coverage_ids:[], progress_pct:25, ai_notes:[{date:'2026-03-30',text:"糖尿病年度管理成本约 ¥48,000（专科复诊 ¥18,000 + 药物 ¥24,000 + 监测 ¥6,000）。以 70 岁且已确诊糖尿病计算，马尔可夫模型显示其每年转入更严重状态的概率约为 14%，届时年成本可能升至 ¥105,600（约 2.2 倍）。",type:'insight'}], manual_notes:[], created_at:'2026-02-15' },
 ];
 
 // --- Conflicts (Fix 4: now programmatic — initialised empty, populated by detectAllConflicts) ---
@@ -922,9 +933,9 @@ let conflicts = [];
 let actions = [
   { id:'a1', text:"致电保诚，重新激活保单 CI-20190034 上的收入保障附加险——该附加险自 2024 年 10 月起已失效", member_id:'self', goal_id:'g5', deadline:'2026-04-15', priority:'critical', status:'pending' },
   { id:'a2', text:"为父亲的独立手术保障索取报价——比较友邦、Bupa 与 Bowtie 针对 68 岁、曾有高血压病史人士的方案", member_id:'self', goal_id:'g2', deadline:'2026-04-30', priority:'critical', status:'pending' },
-  { id:'a3', text:"本月向应急金账户转入 HK$8,000——当前余额 HK$62,000，目标为 HK$144,000", member_id:'self', goal_id:'g1', deadline:'2026-04-05', priority:'high', status:'pending' },
-  { id:'a4', text:"复核岳父糖尿病药物支出——当前每月约 HK$2,000，可能存在价格低 30%–40% 的仿制药替代方案", member_id:'self', goal_id:'g8', deadline:'2026-05-15', priority:'medium', status:'pending' },
-  { id:'a5', text:"安排家庭会议讨论 8 月日本旅行预算——确认 HK$45,000 是否现实，或下调至 HK$35,000 以留出缓冲", member_id:'family', goal_id:'g6', deadline:'2026-04-20', priority:'medium', status:'pending' },
+  { id:'a3', text:"本月向应急金账户转入 ¥8,000——当前余额 ¥62,000，目标为 ¥144,000", member_id:'self', goal_id:'g1', deadline:'2026-04-05', priority:'high', status:'pending' },
+  { id:'a4', text:"复核岳父糖尿病药物支出——当前每月约 ¥2,000，可能存在价格低 30%–40% 的仿制药替代方案", member_id:'self', goal_id:'g8', deadline:'2026-05-15', priority:'medium', status:'pending' },
+  { id:'a5', text:"安排家庭会议讨论 8 月日本旅行预算——确认 ¥45,000 是否现实，或下调至 ¥35,000 以留出缓冲", member_id:'family', goal_id:'g6', deadline:'2026-04-20', priority:'medium', status:'pending' },
 ];
 
 // --- Decision Log ---
@@ -932,9 +943,9 @@ let decisionLog = [];
 
 // --- Documents ---
 let documents = [
-  { id:'doc1', name:'友邦团体医疗保单（雇主提供）', member_id:'self', upload_date:'2026-02-10', status:'analysed', changes:'已确认住院保障额度为 HKD 800,000；不含门诊；不含牙科；由雇主支付，陈伟本人保费为 HKD 0。' },
-  { id:'doc2', name:'保诚重疾保单 CI-20190034', member_id:'self', upload_date:'2026-02-10', status:'action_required', changes:'重疾保额 HK$500,000 仍有效。收入保障附加险已于 2024 年 10 月失效——需重新激活。当前实际生效范围：仅重疾保障，不含收入替代。' },
-  { id:'doc3', name:'强积金对账单（2025 年第四季度）', member_id:'self', upload_date:'2026-01-20', status:'processed', changes:'已确认强积金余额 HK$280,000。缴费率为雇主 5% + 员工 5%，按 HK$30,000 上限计算，每月合计 HK$3,000。' },
+  { id:'doc1', name:'友邦团体医疗保单（雇主提供）', member_id:'self', upload_date:'2026-02-10', status:'analysed', changes:'已确认住院保障额度为 ¥800,000；不含门诊；不含牙科；由雇主支付，陈伟本人保费为 ¥0。' },
+  { id:'doc2', name:'保诚重疾保单 CI-20190034', member_id:'self', upload_date:'2026-02-10', status:'action_required', changes:'重疾保额 ¥500,000 仍有效。收入保障附加险已于 2024 年 10 月失效——需重新激活。当前实际生效范围：仅重疾保障，不含收入替代。' },
+  { id:'doc3', name:'强积金对账单（2025 年第四季度）', member_id:'self', upload_date:'2026-01-20', status:'processed', changes:'已确认强积金余额 ¥280,000。缴费率为雇主 5% + 员工 5%，按 ¥30,000 上限计算，每月合计 ¥3,000。' },
 ];
 
 
@@ -1220,7 +1231,7 @@ function detectAllConflicts() {
   ['Health','Security'].forEach(function(cat){
     if (baselineResult.gap_map[cat] && baselineResult.gap_map[cat].probability_of_gap > 0.25) {
       detected.push({ id:'cf-gap-'+cat, type:'CoverageGap', severity:'critical',
-        title: cat === 'Health' ? '若父亲需要手术，约 HKD 180,000 缺乏保障覆盖' : '您的收入保障存在关键缺口',
+        title: cat === 'Health' ? '若父亲需要手术，约 ¥180,000 缺乏保障覆盖' : '您的收入保障存在关键缺口',
         description: cat === 'Health'
           ? '父亲（68 岁）目前没有个人重疾或手术保障。模拟显示其每年发生健康事件的概率约为 7%，而现有应急金只能覆盖中位手术成本的大约 ' + Math.round(62000/180000*100) + '%。'
           : '收入保障附加险已经失效。一旦出现失业事件，家庭会立刻形成每月 ' + formatHKD(baseline.monthly_income) + ' 的收入缺口。',
@@ -1521,7 +1532,7 @@ function renderOnboardingStep(step) {
     content = '<div style="background:var(--surface-light);border-radius:8px;padding:16px;margin-bottom:16px;font-size:13px">' +
       '<div style="margin-bottom:8px"><strong>已为您预设 8 个目标</strong>，覆盖陈伟、父亲、岳父与莉莉</div>' +
       '<div>家庭准备度： <strong style="color:var(--gold)">' + baselineResult.readiness_score + ' — 中等</strong></div>' +
-      '<div style="margin-top:8px;color:var(--text-secondary)">已识别关键缺口：父亲手术保障（约 HKD 180K 未覆盖）</div>' +
+      '<div style="margin-top:8px;color:var(--text-secondary)">已识别关键缺口：父亲手术保障（约 ¥180K 未覆盖）</div>' +
       '<div style="margin-top:4px;color:var(--text-secondary)">跨境复杂度：' + (onboardingData.location==='hk'||onboardingData.location==='shenzhen' ? '高（收入为港币，义务涉及人民币）' : '中等') + '</div>' +
       '</div>';
     content += '<div style="padding:10px 14px;border-left:3px solid var(--teal);background:var(--teal-light);border-radius:0 8px 8px 0;font-size:12px">' +
@@ -1781,9 +1792,9 @@ function 显示场景名称(type) {
 }
 
 function formatHKD(n) {
-  if (n >= 1000000) return 'HK$' + (n/1000000).toFixed(1) + 'M';
-  if (n >= 1000) return 'HK$' + Math.round(n/1000) + 'K';
-  return 'HK$' + n.toLocaleString();
+  if (n >= 1000000) return '¥' + (n/1000000).toFixed(1) + 'M';
+  if (n >= 1000) return '¥' + Math.round(n/1000) + 'K';
+  return '¥' + n.toLocaleString();
 }
 
 // --- Sidebar ---
@@ -2237,7 +2248,7 @@ function renderBaseline() {
         projection.map(function(p){return '<tr style="border-bottom:1px solid var(--border)"><td style="padding:6px">'+p.month+'</td><td style="text-align:right;padding:6px">'+formatHKD(p.income)+'</td><td style="text-align:right;padding:6px">'+formatHKD(p.costs)+'</td><td style="text-align:right;padding:6px;color:var(--teal);font-weight:600">'+formatHKD(p.surplus)+'</td></tr>';}).join('') +
       '</table>' +
       '<div class="ai-note" style="margin-top:12px"><div class="ai-label"><span class="cfp-badge">CFP®</span> AI 洞察</div>' +
-        '当前月度盈余 ' + formatHKD(baseline.surplus) + '，可以支撑 ' + formatHKD(goals.filter(function(g){return g.status!=='done';}).reduce(function(s,g){return s+g.monthly_commitment;},0)) + ' 的活跃目标投入（约占盈余 ' + Math.round(goals.filter(function(g){return g.status!=='done';}).reduce(function(s,g){return s+g.monthly_commitment;},0)/Math.max(baseline.surplus,1)*100) + '%）。5 月预计会因年度保费续缴产生约 HKD 2,000 的额外支出，使当月可部署盈余降至 ' + formatHKD(baseline.surplus - 2000 - goals.filter(function(g){return g.status!=='done';}).reduce(function(s,g){return s+g.monthly_commitment;},0)) + '。' +
+        '当前月度盈余 ' + formatHKD(baseline.surplus) + '，可以支撑 ' + formatHKD(goals.filter(function(g){return g.status!=='done';}).reduce(function(s,g){return s+g.monthly_commitment;},0)) + ' 的活跃目标投入（约占盈余 ' + Math.round(goals.filter(function(g){return g.status!=='done';}).reduce(function(s,g){return s+g.monthly_commitment;},0)/Math.max(baseline.surplus,1)*100) + '%）。5 月预计会因年度保费续缴产生约 ¥2,000 的额外支出，使当月可部署盈余降至 ' + formatHKD(baseline.surplus - 2000 - goals.filter(function(g){return g.status!=='done';}).reduce(function(s,g){return s+g.monthly_commitment;},0)) + '。' +
       '</div></div></div>';
 }
 
@@ -2277,7 +2288,7 @@ function renderProtection() {
 
     '<div class="card"><h3 style="margin-bottom:8px">在购买任何新产品之前</h3>' +
       '<div class="ai-note"><div class="ai-label"><span class="cfp-badge">CFP®</span> AI 洞察</div>' +
-        '您现有的保诚重疾保单（HKD 500,000）附带的收入保障附加险已经失效，重新恢复大约需要 HKD 450 / 月。这个单一动作即可缩小约 HKD 388,000 的收入暴露缺口，性价比高于新增任何新保单。建议先恢复，再评估剩余缺口。</div>' +
+        '您现有的保诚重疾保单（¥500,000）附带的收入保障附加险已经失效，重新恢复大约需要 ¥450 / 月。这个单一动作即可缩小约 ¥388,000 的收入暴露缺口，性价比高于新增任何新保单。建议先恢复，再评估剩余缺口。</div>' +
       '<p style="font-size:13px;color:var(--text-secondary);margin-top:8px">评估按照 CFP Board 方法论完成：义务梳理 → 资源分析 → 缺口识别。本次对话中未涉及任何产品。</p></div></div>';
 }
 
@@ -2396,30 +2407,30 @@ var activeSidePanel = null;
 // Side panel content for each demo action
 var SIDE_PANEL_CONTENT = {
   a1: { title:'恢复收入保障',
-    meaning:'您的收入保障附加险已于 2024 年 10 月失效。若在此状态下发生失业，家庭将面临约 HKD 450,000 的总缺口，而当前 HKD 62,000 应急金只能覆盖约 7.3 个月风险暴露。',
-    howto:'1. 按保单 CI-20190034 上的联系方式致电保诚。2. 申请恢复收入保障附加险。3. 确认月保费（约 HKD 450 / 月）。',
-    postpone:'每拖延一个月，一旦发生失业，就仍有约 HKD 75,000 的月收入处于无保障状态。',
+    meaning:'您的收入保障附加险已于 2024 年 10 月失效。若在此状态下发生失业，家庭将面临约 ¥450,000 的总缺口，而当前 ¥62,000 应急金只能覆盖约 7.3 个月风险暴露。',
+    howto:'1. 按保单 CI-20190034 上的联系方式致电保诚。2. 申请恢复收入保障附加险。3. 确认月保费（约 ¥450 / 月）。',
+    postpone:'每拖延一个月，一旦发生失业，就仍有约 ¥75,000 的月收入处于无保障状态。',
     instead:'以这个成本，没有其他方案能提供等效的收入保障；这是当前最优选项。' },
   a2: { title:'父亲手术保障',
-    meaning:'父亲（68 岁，轻度高血压）目前没有个人重疾或手术保障。模拟显示，其每年发生一次健康事件的概率约为 7%，单次手术成本中位数约 HKD 180,000。',
+    meaning:'父亲（68 岁，轻度高血压）目前没有个人重疾或手术保障。模拟显示，其每年发生一次健康事件的概率约为 7%，单次手术成本中位数约 ¥180,000。',
     howto:'1. 向友邦、Bupa 与 Bowtie 询问 68 岁且有高血压史的报价。2. 上传任意一份报价，与当前缺口对比。3. 如有需要，再联系经过审核的经纪人。',
     postpone:'随着父亲年龄上升，手术事件概率会继续增加；一旦在确诊后再投保，保费会更贵，承保也会更难。',
-    instead:'若将目标保额从 HKD 350,000 下调到 HKD 200,000，月保费可能下降约 35%，但仍能覆盖中位手术成本。' },
+    instead:'若将目标保额从 ¥350,000 下调到 ¥200,000，月保费可能下降约 35%，但仍能覆盖中位手术成本。' },
   a3: { title:'转入应急储备金',
-    meaning:'您当前 HKD 62,000 的应急金只能覆盖约 1.3 个月固定支出，而目标是 3 个月，对应 HKD 144,000。',
-    howto:'1. 在本月 5 日前，从活期账户转入 HKD 8,000 到应急金账户。2. 完成后将此行动标记为已完成，以记录进决策历史。',
+    meaning:'您当前 ¥62,000 的应急金只能覆盖约 1.3 个月固定支出，而目标是 3 个月，对应 ¥144,000。',
+    howto:'1. 在本月 5 日前，从活期账户转入 ¥8,000 到应急金账户。2. 完成后将此行动标记为已完成，以记录进决策历史。',
     postpone:'每延后一个月，完成日期就会顺延一个月（当前预计到 2027 年 1 月完成）。',
-    instead:'若将每月投入降至 HKD 5,000，完成时间会延至 2027 年 5 月，但能减轻当前盈余压力。' },
+    instead:'若将每月投入降至 ¥5,000，完成时间会延至 2027 年 5 月，但能减轻当前盈余压力。' },
   a4: { title:'岳父糖尿病用药复核',
-    meaning:"岳父每年的糖尿病管理成本约 HKD 48,000。若采用仿制药替代，用药成本可能下降 30–40%，即每年节省约 HKD 7,200。",
+    meaning:"岳父每年的糖尿病管理成本约 ¥48,000。若采用仿制药替代，用药成本可能下降 30–40%，即每年节省约 ¥7,200。",
     howto:'1. 询问主治医生当前处方是否有仿制药替代。2. 对比岳父居住区域 3 家药房的价格。3. 若成本下降，更新该目标金额。',
     postpone:'这不是即时风险，更偏向成本优化，而非保障缺口。',
     instead:'这是您当前计划里投入最小、见效最快的成本优化动作。' },
   a5: { title:'日本旅行预算确认',
-    meaning:'日本旅行目标目前进度正常（HKD 45,000 目标中已存下 HKD 28,000），但几乎没有缓冲。若 8 月前被动用 HKD 10,000 应急金，按当前投入节奏将难以按时完成。',
-    howto:'1. 和家人确认预算：HKD 45,000 是否现实。2. 若不现实，可将目标下调至 HKD 35,000。3. 系统会自动重新计算时间线。',
+    meaning:'日本旅行目标目前进度正常（¥45,000 目标中已存下 ¥28,000），但几乎没有缓冲。若 8 月前被动用 ¥10,000 应急金，按当前投入节奏将难以按时完成。',
+    howto:'1. 和家人确认预算：¥45,000 是否现实。2. 若不现实，可将目标下调至 ¥35,000。3. 系统会自动重新计算时间线。',
     postpone:'旅行日期基本固定在 2026 年 8 月，因此最好在 5 月前做出决定，以便后续预订。',
-    instead:'将目标下调 HKD 10,000（改为 HKD 35,000），同时还能释放约 HKD 1,000 / 月的盈余。' }
+    instead:'将目标下调 ¥10,000（改为 ¥35,000），同时还能释放约 ¥1,000 / 月的盈余。' }
 };
 
 function renderActions() {
@@ -2676,7 +2687,7 @@ function renderReview() {
         '<p style="margin-bottom:8px"><strong>2026 年第二季度复盘 — 截止 6 月 30 日</strong></p><p>自您的计划于2026年1月15日创建以来：</p>' +
         '<div style="margin:8px 0;display:grid;grid-template-columns:1fr 1fr;gap:8px">' +
           '<div>准备度： <strong>52</strong>（初始）→ <strong>'+baselineResult.readiness_score+'</strong>（当前）</div>' +
-          '<div>应急储备金： <strong>HKD 0</strong>（初始）→ <strong>'+formatHKD(62000)+'</strong>（当前）</div>' +
+          '<div>应急储备金： <strong>¥0</strong>（初始）→ <strong>'+formatHKD(62000)+'</strong>（当前）</div>' +
           '<div>活跃目标： <strong>6</strong>（初始）→ <strong>'+goals.filter(function(g){return g.status!=='done';}).length+'</strong>（当前）</div>' +
           '<div>已解决冲突： <strong>'+conflicts.filter(function(c){return c.acknowledged;}).length+'</strong> / '+conflicts.length+'</div></div>' +
         '<p>已完成行动： <strong>'+actions.filter(function(a){return a.status==='done';}).length+'</strong> / '+actions.length+'</p></div></div>' +
@@ -2740,6 +2751,15 @@ render();
 
 // Fix 5: Show onboarding on first load
 startOnboarding();
+
+// Loading page dismiss
+window.addEventListener('load', function() {
+  setTimeout(function() {
+    var lp = document.getElementById('loadingPage');
+    if (lp) { lp.style.opacity = '0'; setTimeout(function(){ lp.style.display = 'none'; }, 800); }
+  }, 1500);
+});
+
 </script>
 </body>
 </html>
